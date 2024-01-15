@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<math.h>
 
-//посмотреть ассемблерный код
 int main()
 {
 	int x1 = 7;

@@ -4,17 +4,22 @@
 void roots(int a, int b, int c)
 {
 	int d = pow(b,2)-4*a*c;
-	if(d>0)
+	if(a==0)
 	{
-		int x1=(-1*b+pow(d,0.5f))/2*a;
-		int x2=(-1*b-pow(d,0.5f))/2*a;
-		printf("x1 = %i\n",x1);
-		printf("x2 = %i\n",x2);
+		double x=-c / (double)(b);
+		printf("x1 = %.3f\n",x);
+	}
+	else if(d>0)
+	{
+		double x1=(-1*b+pow(d,0.5f))/2*a;
+		double x2=(-1*b-pow(d,0.5f))/2*a;
+		printf("x1 = %.3f\n",x1);
+		printf("x2 = %.3f\n",x2);
 	}
 	else if(d==0)
 	{
-		int x=(-1*b)/2*a;
-		printf("x1 = %i\n",x);
+		double x=(-1*b)/((double)2*a);
+		printf("x1 = %.3f\n",x);
 	}
 	else if(d<0)
 	{

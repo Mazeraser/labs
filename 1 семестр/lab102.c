@@ -1,23 +1,29 @@
 #include<stdio.h>
 #include<math.h>
-
-void roots(int a, int b, int c, int arr[3])
+//переделать дискриминант
+void roots(int a, int b, int c, double arr[3])
 {
 	int d = pow(b,2)-4*a*c;
-	if(d>0)
+	if(a==0)
 	{
-		int x1=(-1*b+pow(d,0.5f))/2*a;
-		int x2=(-1*b-pow(d,0.5f))/2*a;
+		double x=-c / (double)(b);
+		arr[0]=(double)1;
+		arr[1]=x;
+	}
+	else if(d>0)
+	{
+		double x1=(-1*b+pow(d,0.5f))/2*a;
+		double x2=(-1*b-pow(d,0.5f))/2*a;
 
-		arr[0]=2;
+		arr[0]=(double)2;
 		arr[1]=x1;
 		arr[2]=x2;
 	}
 	else if(d==0)
 	{
-		int x=(-1*b)/2*a;
+		double x=(-1*b)/((double)2*a);
 
-		arr[0]=1;
+		arr[0]=(double)1;
 		arr[1]=x;
 	}
 	else if(d<0)
@@ -36,16 +42,16 @@ int main()
 	printf("input c: ");
 	scanf("%i",&c);
 
-	int arr[3];
+	double arr[3];
 
 	roots(a,b,c,arr);
 
 	if(arr[0]>0)
 	{
-		printf("count of roots: %i\n",arr[0]);
+		printf("count of roots: %.0f\n",arr[0]);
 		for(int i=1;i<=arr[0];i++)
 		{
-			printf("x%i=%i",i,arr[i]);
+			printf("x%i=%.3f\n",i,arr[i]);
 		}
 	}
 	else if(arr[0]==0)
