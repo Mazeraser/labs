@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<math.h>
-//переделать дискриминант
+
 void roots(int a, int b, int c, double arr[3])
 {
 	int d = pow(b,2)-4*a*c;
-	if(a==0)
+	if(a==0&&b==0&&c==0)
+		arr[0]=-1;//бесконечно много решений
+	else if(a==0&&d>0)
 	{
 		double x=-c / (double)(b);
 		arr[0]=(double)1;
@@ -19,14 +21,14 @@ void roots(int a, int b, int c, double arr[3])
 		arr[1]=x1;
 		arr[2]=x2;
 	}
-	else if(d==0)
+	else if(d==0&&a!=0)
 	{
 		double x=(-1*b)/((double)2*a);
 
 		arr[0]=(double)1;
 		arr[1]=x;
 	}
-	else if(d<0)
+	else
 	{
 		arr[0]=0;
 	}
@@ -57,6 +59,10 @@ int main()
 	else if(arr[0]==0)
 	{
 		printf("there are no roots");
+	}
+	else
+	{
+		printf("infinitely many solutions");
 	}
 	return 0;
 }

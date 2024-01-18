@@ -12,7 +12,10 @@ int main()
 	scanf("%i",&c);
 
 	int d = pow(b,2)-4*a*c;
-	if(a==0)
+	
+	if(a==0&&b==0&&c==0)
+		printf("infinitely many solutions");
+	else if(a==0&&d>0)
 	{
 		double x=-c / (double)(b);
 		printf("x1 = %.3f\n",x);
@@ -24,12 +27,12 @@ int main()
 		printf("x1 = %.3f\n",x1);
 		printf("x2 = %.3f\n",x2);
 	}
-	else if(d==0)
+	else if(d==0&&a!=0)
 	{
 		double x=(-1*b)/((double)2*a);
 		printf("x1 = %.3f\n",x);
 	}
-	else if(d<0)
+	else
 	{
 		printf("there are no roots");
 	}
